@@ -1,6 +1,6 @@
 use super::point::Point;
 use raster::{Color, Image};
-use create::geometrical_shapes::{Displayable, Drawable}
+use crate::geometrical_shapes::{Displayable, Drawable};
 
 pub struct Line{
     a: Point,
@@ -20,7 +20,7 @@ impl Line {
 
 impl Drawable for Line{
     fn draw(&self, img: &mut raster::Image) {
-        draw_line(img, &self.a, &self.b, &self.color())
+        draw_line(img, &self.a, &self.b, self.color())
     }
 }
 

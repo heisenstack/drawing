@@ -12,10 +12,10 @@ impl Point {
         Self { x, y }
     }
     pub fn random(width: i32, height: i32) -> Self {
-        let mut rnd = rand::thread_rng();
+        let mut rnd = rand::rng();
         Point {
-            x: rnd.gen_range(0..width),
-            y: rnd.gen_range(0..height),
+            x: rnd.random_range(0..=width),
+            y: rnd.random_range(0..=height),
         }
     }
 }
