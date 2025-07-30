@@ -1,7 +1,7 @@
 use super::point::Point;
 use super::line::*;
 use crate::geometrical_shapes::{Drawable};
-// use raster::{Color, Image};
+use raster::{Color};
 
 
 pub struct Triangle{
@@ -22,8 +22,8 @@ impl Triangle{
 
 impl Drawable for Triangle{
     fn draw(&self, img: &mut raster::Image){
-        draw_line(img, &self.a, &self.b, self.color());
-        draw_line(img, &self.a, &self.c, self.color());
-        draw_line(img, &self.b, &self.c, self.color());
+        draw_line(img, &self.a, &self.b, Color::rgb(255,255,255));
+        draw_line(img, &self.b, &self.c, Color::rgb(255,255,255));
+        draw_line(img, &self.a, &self.c, Color::rgb(255,255,255));
     }
 }

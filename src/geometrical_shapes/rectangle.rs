@@ -1,6 +1,7 @@
 use super::line::*;
 use super::point::Point;
 use crate::geometrical_shapes::Drawable;
+use raster::{Color};
 
 // Rectangle: a new rectangle should be created
 // from references to two different points.
@@ -17,13 +18,13 @@ impl Rectangle {
 
 impl Drawable for Rectangle {
     fn draw(&self, image: &mut raster::Image) {
-        let color = self.color();
+        // let color = self.color();
         let point_c = &Point::new(self.a.x, self.b.y);
         let point_d = &Point::new(self.b.x, self.a.y);
 
-        draw_line(image, &self.a, point_c, color.clone());
-        draw_line(image, &self.a, point_d, color.clone());
-        draw_line(image, point_c, &self.b, color.clone());
-        draw_line(image, point_d, &self.b, color.clone());
+        draw_line(image, &self.a, point_c, Color::rgb(255, 255, 255));
+        draw_line(image, &self.a, point_d, Color::rgb(255, 255, 255));
+        draw_line(image, point_c, &self.b, Color::rgb(255, 255, 255));
+        draw_line(image, point_d, &self.b, Color::rgb(255, 255, 255));
     }
 }
