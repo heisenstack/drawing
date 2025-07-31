@@ -198,10 +198,10 @@ impl Triangle {
 
 impl Drawable for Triangle {
     fn draw(&self, canvas: &mut impl Displayable) {
-        let triangle_color = self.color();
-        Line::new(self.vertex_a, self.vertex_c, triangle_color.clone()).draw(canvas);
-        Line::new(self.vertex_c, self.vertex_b, triangle_color.clone()).draw(canvas);
-        Line::new(self.vertex_b, self.vertex_a, triangle_color.clone()).draw(canvas);
+        // let triangle_color = self.color();
+        Line::new(self.vertex_a, self.vertex_c, Color::rgb(255, 255, 255)).draw(canvas);
+        Line::new(self.vertex_c, self.vertex_b, Color::rgb(255, 255, 255)).draw(canvas);
+        Line::new(self.vertex_b, self.vertex_a, Color::rgb(255, 255, 255)).draw(canvas);
     }
 }
 
@@ -215,14 +215,13 @@ pub struct Rectangle {
 
 impl Rectangle {
     pub fn new(first_corner: &Point, second_corner: &Point) -> Self {
-        let shape_color = first_corner.color();
 
         Self {
             corner_a: *first_corner,
             corner_b: *second_corner,
             corner_c: Point { x: first_corner.x, y: second_corner.y },
             corner_d: Point { x: second_corner.x, y: first_corner.y },
-            rect_color: shape_color,
+            rect_color: Color::rgb(255, 255, 255),
         }
     }
 }
